@@ -1,0 +1,9 @@
+Task,Accuracy,Precision,Recall,F1,ROUGE-1 F1,ROUGE-2 F1,ROUGE-L F1
+rudabank,0.462,0.545,0.469,0.447,,,
+corefREs,0.538,0.269,0.5,0.35,,,
+disrpt,0.272,0.178,0.206,0.166,,,
+idioms_literal,0.72,0.716,0.667,0.673,,,
+idioms_text,0.41,0.407,0.414,0.376,,,
+corefAnaphs,0.786,0.786,0.786,0.786,,,
+idioms_meaning,0.65,0.333,0.217,0.263,,,
+ellipsis,0.163,0.09,0.089,0.09,0.344,0.259,0.341

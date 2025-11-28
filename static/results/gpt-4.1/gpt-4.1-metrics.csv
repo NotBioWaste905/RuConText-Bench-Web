@@ -1,0 +1,9 @@
+Task,Accuracy,Precision,Recall,F1,ROUGE-1 F1,ROUGE-2 F1,ROUGE-L F1
+ellipsis_gpt-4.1_temp0_20250519_111046,0.12,0.064,0.064,0.064,0.366,0.268,0.364
+rudabank_openai_gpt-4.1_temp0_20250518_234317,0.584,0.642,0.595,0.576,,,
+disrpt_gpt-4.1_temp0_20250519_102801,0.388,0.306,0.284,0.258,,,
+corefREs_gpt-4.1_temp0_20250519_102206,0.538,0.269,0.5,0.35,,,
+corefAnaphs_gpt-4.1_temp0_20250519_101842,0.904,0.904,0.905,0.904,,,
+idioms_literal_openai_gpt-4.1_20250519_000845,0.0,0.0,0.0,0.0,,,
+idioms_text_openai_gpt-4.1_20250519_000845,0.0,0.0,0.0,0.0,,,
+idioms_meaning_openai_gpt-4.1_20250519_000845,0.0,0.0,0.0,0.0,,,

@@ -1,0 +1,7 @@
+Task,Accuracy,Precision,Recall,F1,ROUGE-1 F1,ROUGE-2 F1,ROUGE-L F1
+ellipsis_corpus,0.195,1.0,0.195,0.326,0.358,0.27,0.356
+disrpt_json,0.272,0.178,0.206,0.166,,,
+idioms_literal,0.72,0.716,0.667,0.673,,,
+idioms_meaning,0.65,0.333,0.217,0.263,,,
+idioms_text,0.41,0.407,0.414,0.376,,,
+rudabank,0.462,0.545,0.469,0.447,,,
