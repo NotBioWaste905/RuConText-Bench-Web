@@ -92,8 +92,10 @@
         {#if !currentTask}
             <p class="empty-state">No metrics to display.</p>
         {:else}
-            <Table items={tableItems} {dataTableOptions} divClass="relative overflow-x-auto shadow-md sm:rounded-lg">
-            </Table>
+            {#key activeTask}
+                <Table items={tableItems} {dataTableOptions} divClass="relative overflow-x-auto">
+                </Table>
+            {/key}
         {/if}
     </section></div>
 
@@ -114,8 +116,10 @@
     }
     .table-wrapper {
         margin: 2rem auto 4rem;
-        max-width: 90vw;
+        width: 100%;
         overflow-x: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
     .tabs {
         display: flex;
@@ -147,10 +151,46 @@
         color: #555;
     }
     
+    /* Table styling improvements */
+    :global(table.dataTable) {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    :global(table.dataTable thead) {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
     :global(table.dataTable thead th) {
         position: relative;
         cursor: pointer;
         user-select: none;
+        padding: 1rem 1.25rem;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        white-space: nowrap;
+        min-width: 120px;
+    }
+    
+    :global(table.dataTable thead th:first-child) {
+        text-transform: capitalize;
+        min-width: 180px;
+        padding-left: 1.5rem;
+    }
+    
+    :global(table.dataTable thead th:not(:first-child)) {
+        text-align: right;
+        padding-right: 1.5rem;
     }
     
     :global(table.dataTable thead th.sorting:before),
@@ -170,24 +210,66 @@
         opacity: 1;
     }
     
+    :global(table.dataTable tbody) {
+        background: white;
+    }
+    
+    :global(table.dataTable tbody tr) {
+        border-bottom: 1px solid #e5e7eb;
+        transition: background-color 0.15s ease;
+    }
+    
+    :global(table.dataTable tbody tr:last-child) {
+        border-bottom: none;
+    }
+    
     :global(table.dataTable tbody tr:hover) {
+        background-color: #f9fafb;
+    }
+    
+    :global(table.dataTable tbody tr:nth-child(even)) {
+        background-color: #fafafa;
+    }
+    
+    :global(table.dataTable tbody tr:nth-child(even):hover) {
         background-color: #f3f4f6;
     }
     
-    :global(table.dataTable thead th:first-child) {
-        text-transform: capitalize;
-        font-weight: 600;
+    :global(table.dataTable tbody td) {
+        padding: 1rem 1.25rem;
+        text-align: right;
+        font-size: 0.9375rem;
+        color: #374151;
+        border-right: 1px solid #e5e7eb;
+        white-space: nowrap;
     }
     
-    /* Format numeric cells - ensure proper alignment and formatting */
-    :global(table.dataTable tbody td) {
-        text-align: right;
+    :global(table.dataTable tbody td:last-child) {
+        border-right: none;
     }
     
     :global(table.dataTable tbody td:first-child) {
         text-align: left;
         font-weight: 600;
         text-transform: capitalize;
+        color: #111827;
+        padding-left: 1.5rem;
+        background-color: #f9fafb;
+        border-right: 2px solid #e5e7eb;
+    }
+    
+    
+    /* Column width adjustments */
+    :global(table.dataTable thead th),
+    :global(table.dataTable tbody td) {
+        width: auto;
+    }
+    
+    :global(table.dataTable thead th:first-child),
+    :global(table.dataTable tbody td:first-child) {
+        position: sticky;
+        left: 0;
+        z-index: 10;
     }
     .container {
     /* display: flex; */
